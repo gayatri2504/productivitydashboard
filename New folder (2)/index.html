@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1><i class="fas fa-check-double"></i> Productivity Hub</h1>
+            <div>
+                <button id="focus-toggle"><i class="fas fa-eye-slash"></i> Focus Mode</button>
+                <button id="theme-toggle"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="daily-goals">
+                <h2><i class="fas fa-bullseye"></i> Daily Goal</h2>
+                <textarea id="goal-input" placeholder="What's your main goal for today?"></textarea>
+            </section>
+
+            <section id="todo-list">
+                <h2><i class="fas fa-tasks"></i> To-Do List</h2>
+                <div class="task-input">
+                    <select id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <input type="text" id="new-task" placeholder="Add new task">
+                    <button id="add-task"><i class="fas fa-plus"></i> Add</button>
+                </div>
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <ul id="tasks">
+                    </ul>
+                <div class="progress-indicator">
+                    <i class="fas fa-chart-pie"></i> Tasks Completed: <span id="completion-percentage">0%</span>
+                </div>
+            </section>
+
+            <section id="pomodoro-timer">
+                <h2><i class="fas fa-stopwatch"></i> Pomodoro Timer</h2>
+                <div class="timer-settings">
+                    <div class="setting">
+                        <label for="work-duration">Work (min):</label>
+                        <input type="number" id="work-duration" value="25" min="1">
+                    </div>
+                    <div class="setting">
+                        <label for="break-duration">Break (min):</label>
+                        <input type="number" id="break-duration" value="5" min="1">
+                    </div>
+                </div>
+                <div class="timer">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+                <div class="timer-controls">
+                    <button id="start-timer"><i class="fas fa-play"></i> Start</button>
+                    <button id="pause-timer"><i class="fas fa-pause"></i> Pause</button>
+                    <button id="reset-timer"><i class="fas fa-undo"></i> Reset</button>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div class="pomodoro-image">
+                    <img src="https://miro.medium.com/v2/resize:fit:1200/0*Y7Vt4h-d0CkFFLRG.png" alt="Pomodoro Tomato">
+                </div>
+            </section>
+
+            <section id="daily-quote">
+                <h2><i class="fas fa-quote-left"></i> Daily Quote</h2>
+                <blockquote id="quote-text">Loading...</blockquote>
+                <cite id="quote-author"></cite>
+                <div class="quote-image">
+                    <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/icon-quote-red-logo-4GGN7rA-600.jpg" alt="Quote Icon">
+                </div>
+            </section>
+
+            <section id="daily-planner">
+                <h2><i class="fas fa-calendar-alt"></i> Daily Planner</h2>
+                <textarea id="planner-input" placeholder="Plan your day..."></textarea>
+                <div class="planner-image">
+                    <img src="https://static-00.iconduck.com/assets.00/planner-icon-1995x2048-jg306xz9.png" alt="Planner Icon">
+                </div>
+            </section>
+
+            <section id="focus-mode">
+                <h2><i class="fas fa-eye-slash"></i> Focus Mode</h2>
+                <p>Toggle Focus Mode to minimize distractions.</p>
+                <div class="focus-image">
+                    <img src="https://png.pngtree.com/png-vector/20191121/ourmid/pngtree-target-icon-vector-illustration-design--bow-center-focus-target-png-image_1870526.jpg" alt="Focus Icon">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            &copy; 2025 Productivity Hub
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+    background-image: url('https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?cs=srgb&dl=pexels-cottonbro-4065876.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: Keep the background fixed while scrolling */
+}
+
+.dashboard-container {
+    max-width: 1200px; /* Increased max-width for wider screens */
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #007bff;
+}
+
+header > div {
+    display: flex;
+    gap: 10px;
+}
+
+header button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #6c757d;
+    color: #fff;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover {
+    background-color: #545b62;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Basic responsive grid */
+    gap: 30px;
+}
+
+section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #343a40;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Daily Goals */
+#daily-goals {
+    /* No specific layout changes for now */
+}
+
+#daily-goals h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #343a40;
+    border-bottom: 2px solid #28a745; /* Different color to distinguish */
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+#goal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    min-height: 80px;
+    font-size: 1rem;
+    color: #495057;
+    resize: vertical;
+}
+
+/* To-Do List Styles */
+.task-input {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px; /* Added gap for priority select */
+    align-items: center; /* Align items vertically */
+}
+
+.task-input select#task-priority {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #495057;
+    width: auto; /* Adjust width as needed */
+}
+
+.task-input input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.task-input button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.task-input button:hover {
+    background-color: #1e7e34;
+}
+
+.task-filters {
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#tasks {
+    list-style: none;
+    padding: 0;
+}
+
+#tasks li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    cursor: grab; /* Indicate draggable */
+}
+
+#tasks li:last-child {
+    border-bottom: none;
+}
+
+#tasks li input[type="checkbox"] {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#tasks li span {
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+#tasks li.completed span {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+#tasks li .edit-button,
+#tasks li .delete-button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+#tasks li .edit-button:hover,
+#tasks li .delete-button:hover {
+    opacity: 1;
+}
+
+#tasks li .delete-button {
+    color: #dc3545;
+}
+
+#tasks li[data-priority="high"] span {
+    font-weight: bold;
+    color: #dc3545; /* Red for high priority */
+}
+
+#tasks li[data-priority="medium"] span {
+    color: #ffc107; /* Yellow for medium priority */
+}
+
+#tasks li[data-priority="low"] span {
+    color: #28a745; /* Green for low priority */
+}
+
+.progress-indicator {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pomodoro Timer Styles */
+#pomodoro-timer {
+    /* You might want to adjust its width on larger screens */
+}
+
+.timer-settings {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center; /* Center timer settings */
+}
+
+.timer-settings .setting {
+    display: flex;
+    align-items: center;
+}
+
+.timer-settings label {
+    margin-right: 5px;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.timer-settings input[type="number"] {
+    width: 50px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center; /* Center input text */
+}
+
+.timer {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-controls button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.timer-controls #start-timer {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.timer-controls #start-timer:hover {
+    background-color: #1e7e34;
+}
+
+.timer-controls #pause-timer {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.timer-controls #pause-timer:hover {
+    background-color: #e0a800;
+}
+
+.timer-controls #reset-timer {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.timer-controls #reset-timer:hover {
+    background-color: #0056b3;
+}
+
+.progress-bar-container {
+    background-color: #e9ecef;
+    border-radius: 6px;
+    height: 12px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    background-color: #007bff;
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+/* Daily Quote Styles */
+#daily-quote {
+    /* You might want to adjust its width on larger screens */
+    text-align: center; /* Center the quote */
+}
+
+#quote-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #495057;
+    font-size: 1.1rem;
+}
+
+#quote-author {
+    font-size: 0.95rem;
+    color: #6c757d;
+    text-align: right;
+    display: block;
+}
+
+/* Daily Planner Styles */
+#daily-planner {
+    /* You might want to span this across more columns on larger screens */
+}
+
+#planner-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    min-height: 150px;
+    font-size: 1rem;
+    color: #495057;
+    resize: vertical;
+}
+
+/* Focus Mode Styles */
+#focus-mode {
+    text-align: center;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#focus-mode h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #343a40;
+    border-bottom: 2px solid #6c757d;
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+#focus-mode p {
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.focus-image {
+    margin-top: 15px;
+}
+
+.focus-image img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.focus-active main > section {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+body.focus-active main #focus-mode {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.focus-active header,
+body.focus-active footer {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Image Styling */
+.pomodoro-image,
+.quote-image,
+.planner-image,
+.focus-image {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.pomodoro-image img,
+.quote-image img,
+.planner-image img,
+.focus-image img {
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Optional: Add a subtle shadow */
+}
+
+/* Responsive Image Styling (Optional) */
+@media (max-width: 600px) {
+    .pomodoro-image img,
+    .quote-image img,
+    .planner-image img,
+    .focus-image img {
+        max-width: 100%;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+    /* Background image for dark mode - you can adjust or remove */
+    /* background-image: url('URL_TO_YOUR_DARK_MODE_IMAGE'); */
+}
+
+body.dark-mode .dashboard-container {
+    background-color: #343a40;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode header {
+    border-bottom-color: #495057;
+}
+
+body.dark-mode header h1 {
+    color: #00bfff;
+}
+
+body.dark-mode header button {
+    background-color: #495057;
+    color: #fff;
+}
+
+body.dark-mode header button:hover {
+    background-color: #5a6268;
+}
+
+body.dark-mode section {
+    background-color: #343a40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode h2 {
+    color: #00bfff;
+    border-bottom-color: #00bfff;
+}
+
+
+body.dark-mode #daily-goals {
+    background-color: #343a40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #daily-goals h2 {
+    color: #28a745;
+    border-bottom-color: #28a745;
+}
+
+body.dark-mode #goal-input {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #495057;
+}
+
+body.dark-mode .task-input input {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #495057;
+}
+
+body.dark-mode .task-input select#task-priority {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #495057;
+}
+
+body.dark-mode .task-filters .filter-btn {
+    border-color: #00bfff;
+    color: #00bfff;
+}
+
+body.dark-mode .task-filters .filter-btn.active,
+body.dark-mode .task-filters .filter-btn:hover {
+    background-color: #00bfff;
+    color: #fff;
+}
+
+body.dark-mode #tasks li {
+    border-bottom-color: #495057;
+    color: #e9ecef;
+}
+
+body.dark-mode #tasks li.completed span {
+    color: #6c757d;
+}
+
+body.dark-mode #tasks li .edit-button,
+body.dark-mode #tasks li .delete-button {
+    color: #00bfff;
+}
+
+body.dark-mode #tasks li .delete-button {
+    color: #dc3545;
+}
+
+body.dark-mode .progress-indicator {
+    color: #adb5bd;
+}
+
+body.dark-mode .timer {
+    color: #e9ecef;
+}
+
+body.dark-mode .timer-settings label {
+    color: #ced4da;
+}
+
+body.dark-mode .timer-settings input[type="number"] {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #495057;
+}
+
+body.dark-mode .progress-bar-container {
+    background-color: #495057;
+}
+
+body.dark-mode #quote-text {
+    color: #ced4da;
+}
+
+body.dark-mode #quote-author {
+    color: #adb5bd;
+}
+
+body.dark-mode #planner-input {
+    background-color: #495057;
+    color: #e9ecef;
+    border-color: #495057;
+}
+
+body.dark-mode #focus-mode {
+    background-color: #343a40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #focus-mode h2 {
+    color: #00bfff;
+    border-bottom-color: #6c757d;
+}
+
+body.dark-mode #focus-mode p {
+    color: #ced4da;
+}
